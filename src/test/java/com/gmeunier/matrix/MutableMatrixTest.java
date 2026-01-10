@@ -15,7 +15,7 @@ public class MutableMatrixTest {
 		double[][] data2 = {{}};
 		
 		assertThrows(IllegalArgumentException.class, () -> MutableMatrix.of(data1));
-		assertThrows(IllegalArgumentException.class, () -> MutableMatrix.of(data1));
+		assertThrows(IllegalArgumentException.class, () -> MutableMatrix.of(data2));
 	}
 	
 	@Test
