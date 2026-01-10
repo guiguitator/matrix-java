@@ -127,6 +127,37 @@ public class Matrices {
 		return ImmutableMatrix.of(data);
 	}
 	
+	/**
+	 * Creates a diagonal matrix with the specified diagonal values.
+	 * <p>
+	 * The returned matrix is square, with the provided values placed on the
+	 * main diagonal and zeros elsewhere.
+	 * </p>
+	 * 
+	 * <p>
+	 * The number of diagonal values determines the size of the matrix.
+	 * At least one value must be provided.
+	 * <p>
+	 * 
+	 * @param values the values to place on the main diagonal
+	 * @return a diagonal matrix whose diagonal elements are the given values
+	 * @throws IllegalArgumentException if no values are provided
+	 */
+	public static ImmutableMatrix diagonal(double... values) {
+		if (values.length == 0) {
+			throw new IllegalArgumentException(
+					"At least one diagonal value must be provided"
+			);
+		}
+		
+		double[][] data = new double[values.length][values.length];
+		
+		for (int i = 0; i < values.length; i++) {
+			data[i][i] = values[i];
+		}
+		
+		return ImmutableMatrix.of(data);
+	}
 }
 
 

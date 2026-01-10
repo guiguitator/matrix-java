@@ -71,4 +71,18 @@ public class MatricesTest {
 		assertThrows(IllegalArgumentException.class, () -> Matrices.random(2, 2, 10, 0));
 	}
 	
+	@Test
+	void testDiagonal() {
+		ImmutableMatrix m = Matrices.diagonal(1, 2, 3);
+		
+		assertEquals(1, m.get(0, 0));
+		assertEquals(2, m.get(1, 1));
+		assertEquals(3, m.get(2, 2));
+		assertEquals(0, m.get(0, 1));
+	}
+	
+	@Test
+	void testDiagonalIllegalArgumentException() {
+		assertThrows(IllegalArgumentException.class, () -> Matrices.diagonal());
+	}
 }
