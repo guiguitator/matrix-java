@@ -18,7 +18,7 @@ public class ImmutableMatrixTest {
 		double[][] data2 = {{}};
 		
 		assertThrows(IllegalArgumentException.class, () -> ImmutableMatrix.of(data1));
-		assertThrows(IllegalArgumentException.class, () -> ImmutableMatrix.of(data1));
+		assertThrows(IllegalArgumentException.class, () -> ImmutableMatrix.of(data2));
 	}
 	
 	@Test
