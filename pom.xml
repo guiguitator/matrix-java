@@ -1,0 +1,70 @@
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gmeunier</groupId>
+  <artifactId>matrix</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>matrix-java</name>
+  <description>A Java library for working with matrices.</description>
+  <url>https://github.com/guiguitator/matrix-java</url>
+  <inceptionYear>2026</inceptionYear>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <licenses>
+    <license>
+        <name>MIT License</name>
+        <url>https://opensource.org/licenses/MIT</url>
+        <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>guiguitator</id>
+      <name>Guillaume Meunier</name>
+      <url>https://github.com/guiguitator</url>
+    </developer>
+  </developers>
+  
+  <dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.1</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.11.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.6.3</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
