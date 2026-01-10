@@ -158,27 +158,58 @@ public class Matrices {
 		
 		return ImmutableMatrix.of(data);
 	}
+	
+	/**
+	 * Creates a row vector from the specified values.
+	 * <p>
+	 * The returned matrix has exactly one row and as many columns as
+	 * there are provided values.
+	 * </p>
+	 * 
+	 * @param values the values of the row vector
+	 * @return a row vector containing the given values
+	 * @throws IllegalArgumentException if no values are provided
+	 */
+	public static ImmutableMatrix rowVector(double... values) {
+		if (values.length == 0) {
+			throw new IllegalArgumentException(
+					"At least one value must be provided to create a row vector"
+			);
+		}
+		
+		double[][] data = new double[1][values.length];
+		
+		for (int i = 0; i < values.length; i++) {
+			data[0][i] = values[i];
+		}
+		
+		return ImmutableMatrix.of(data);
+	}
+	
+	/**
+	 * Creates a column vector from the specified values.
+	 * <p>
+	 * The returned matrix has exactly one column and as many rows as
+	 * there are provided values.
+	 * </p>
+	 * 
+	 * @param values the values of the column vector
+	 * @return a column vector containing the given values
+	 * @throws IllegalArgumentException if no values are provided
+	 */
+	public static ImmutableMatrix columnVector(double... values) {
+		if (values.length == 0) {
+			throw new IllegalArgumentException(
+					"At least one value must be provided to column a row vector"
+			);
+		}
+		
+		double[][] data = new double[values.length][1];
+		
+		for (int i = 0; i < values.length; i++) {
+			data[i][0] = values[i];
+		}
+		
+		return ImmutableMatrix.of(data);
+	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

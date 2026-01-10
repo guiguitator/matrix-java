@@ -85,4 +85,32 @@ public class MatricesTest {
 	void testDiagonalIllegalArgumentException() {
 		assertThrows(IllegalArgumentException.class, () -> Matrices.diagonal());
 	}
+	
+	@Test
+	void testRowVector() {
+		ImmutableMatrix m = Matrices.rowVector(1, 2, 3);
+		
+		assertEquals(1, m.get(0, 0));
+		assertEquals(2, m.get(0, 1));
+		assertEquals(3, m.get(0, 2));
+	}
+	
+	@Test
+	void testRowVectorIllegalArgumentException() {
+		assertThrows(IllegalArgumentException.class, () -> Matrices.rowVector());
+	}
+	
+	@Test
+	void testColumnVector() {
+		ImmutableMatrix m = Matrices.columnVector(1, 2, 3);
+		
+		assertEquals(1, m.get(0, 0));
+		assertEquals(2, m.get(1, 0));
+		assertEquals(3, m.get(2, 0));
+	}
+	
+	@Test
+	void testColumnVectorIllegalArgumentException() {
+		assertThrows(IllegalArgumentException.class, () -> Matrices.columnVector());
+	}
 }
