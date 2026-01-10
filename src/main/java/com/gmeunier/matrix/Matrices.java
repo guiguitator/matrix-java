@@ -1,6 +1,8 @@
 package com.gmeunier.matrix;
 
 import java.util.Arrays;
+import java.util.Random;
+
 import com.gmeunier.matrix.util.MatrixChecks;
 
 /**
@@ -67,7 +69,7 @@ public class Matrices {
 	 * </p>
 	 * 
 	 * @param size the number of rows and columns
-	 * @return identity matrix of the given size
+	 * @return an identity matrix of the given size
 	 * @throws IllegalArgumentException if the size is not positive
 	 */
 	public static ImmutableMatrix identity(int size) {
@@ -81,4 +83,71 @@ public class Matrices {
 		
 		return ImmutableMatrix.of(data);
 	}
+	
+	/**
+	 * Creates a matrix filled with random values within a given range.
+	 * <p>
+	 * Each element of the returned matrix is assigned a pseudo-random value
+	 * uniformly distributed in the interval {@code [rangeMin, rangeMax)}.
+	 * </p>
+	 * 
+	 * <p>
+	 * The lower bound {@code rangeMin} must be less than {@code rangeMax}.
+	 * </p>
+	 * 
+	 * @param rowDimension the number of rows
+	 * @param columnDimension the number of columns
+	 * @param rangeMin the inclusive lower bound of the random values
+	 * @param rangeMax the exclusive upper bound of the random values
+	 * @return a matrix filled with random values in the specified range
+	 * @throws IllegalArgumentException if any dimension is not positive
+	 * or if {@code rangeMin >= rangeMax}
+	 */
+	public static ImmutableMatrix random(
+			int rowDimension, int columnDimension,
+			double rangeMin, double rangeMax) {	
+		MatrixChecks.requirePositiveDimensions(rowDimension, columnDimension);
+		
+		if (rangeMin >= rangeMax) {
+			throw new IllegalArgumentException(
+					"The rangeMin argument must be less than rangeMax. "
+					+ "Provided: rangeMin=" + rangeMin + ", rangeMax=" + rangeMax
+			);
+		}
+		
+		double[][] data = new double[rowDimension][columnDimension];
+		Random random = new Random();
+		
+		for (int i = 0; i < rowDimension; i++) {
+			for (int j = 0; j < columnDimension; j++) {
+				data[i][j] = rangeMin + (rangeMax - rangeMin) * random.nextDouble();
+			}
+		}
+		
+		return ImmutableMatrix.of(data);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

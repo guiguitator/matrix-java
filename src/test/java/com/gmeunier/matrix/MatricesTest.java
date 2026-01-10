@@ -3,6 +3,7 @@ package com.gmeunier.matrix;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MatricesTest {
@@ -51,6 +52,23 @@ public class MatricesTest {
 	void testIdentityIllegalArgument() {
 		assertThrows(IllegalArgumentException.class, () -> Matrices.identity(0));
 		assertThrows(IllegalArgumentException.class, () -> Matrices.identity(-1));
+	}
+	
+	@Test
+	void testRandom() {
+		double rangeMin = 0;
+		double rangeMax = 100;
+		
+		ImmutableMatrix m = Matrices.random(2, 2, rangeMin, rangeMax);
+		
+		assertTrue(rangeMin <= m.get(0, 0) && m.get(0, 0) <= rangeMax);
+		assertTrue(rangeMin <= m.get(1, 1) && m.get(1, 1) <= rangeMax);
+	}
+	
+	@Test
+	void testRandomIllegalArgumentException() {
+		assertThrows(IllegalArgumentException.class, () -> Matrices.random(0, 0, 0, 10));
+		assertThrows(IllegalArgumentException.class, () -> Matrices.random(2, 2, 10, 0));
 	}
 	
 }
