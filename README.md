@@ -34,7 +34,7 @@ Download the JAR from the releases and add it to your project's classpath.
 
 ## Building
 
-Git, Maven and JDK 17 (or newer) are required for building.
+Git, Maven and JDK 21 (or newer) are required for building.
 
 ```bash
 git clone https://github.com/guiguitator/matrix-java.git
