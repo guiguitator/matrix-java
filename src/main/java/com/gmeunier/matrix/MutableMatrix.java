@@ -164,7 +164,7 @@ public class MutableMatrix extends AbstractMatrix {
 	 * resulting in a random permutation of all values.
 	 * </p>
 	 * 
-	 * @return
+	 * @return this matrix after modification
 	 */
 	public MutableMatrix shuffle() {
 		Random random = new Random();
@@ -177,6 +177,68 @@ public class MutableMatrix extends AbstractMatrix {
 				double temp = this.data[i][j];
 				this.data[i][j] = this.data[r][c];
 				this.data[r][c] = temp;
+			}
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Swaps two rows of this matrix.
+	 * <p>
+	 * The contents of {@code row1} and {@code row2} are exchanged.
+	 * </p>
+	 * 
+	 * @param row1 the index of the first row
+	 * @param row2 the index of the second row
+	 * @return this matrix after modification
+	 * @throws IllegalArgumentException if either row index is out of bounds
+	 */
+	public MutableMatrix swapRows(int row1, int row2) {
+		if (row1 < 0 || row1 >= this.rowDimension ||
+			row2 < 0 || row2 >= this.rowDimension) {
+			throw new IllegalArgumentException(
+					"Row indices out of bounds: row1=" + row1 +
+					", row2=" + row2 + " for matrix with " + 
+					this.rowDimension + " rows"
+			);
+		}
+		
+		if (row1 != row2) {
+			double[] temp = this.data[row1];
+			this.data[row1] = this.data[row2];
+			this.data[row2] = temp;
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Swaps two columns of this matrix in place.
+	 * <p>
+	 * The contents of {@code column1} and {@code column2} are exchanged.
+	 * </p>
+	 * 
+	 * @param column1 the index of the first column
+	 * @param column2 the index of the second column
+	 * @return this matrix after modification
+	 * @throws IllegalArgumentException if either column index is out of bounds
+	 */
+	public MutableMatrix swapColumns(int column1, int column2) {
+		if (column1 < 0 || column1 >= this.columnDimension ||
+			column2 < 0 || column2 >= this.columnDimension) {
+			throw new IllegalArgumentException(
+					"Column indices out of bounds: column1=" + column1 +
+					", column2=" + column2 + " for matrix with " + 
+					this.columnDimension + " columns"
+			);
+		}
+		
+		if (column1 != column2) {
+			for (int i = 0; i < this.rowDimension; i++) {
+				double temp = this.data[i][column1];
+				this.data[i][column1] = this.data[i][column2];
+				this.data[i][column2] = temp;
 			}
 		}
 		

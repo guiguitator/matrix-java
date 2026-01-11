@@ -146,4 +146,56 @@ public class MutableMatrixTest {
 		assertTrue(m.get(0, 1) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
 		assertTrue(m.get(0, 2) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
 	}
+	
+	@Test
+	void testSwapRows() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		m.swapRows(0, 1);
+		
+		assertEquals(3, m.get(0, 0));
+		assertEquals(4, m.get(0, 1));
+		assertEquals(1, m.get(1, 0));
+		assertEquals(2, m.get(1, 1));
+	}
+	
+	@Test
+	void testSwapRowsIllegalArgument() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.swapRows(0, 5));
+		assertThrows(IllegalArgumentException.class, () -> m.swapRows(-1, 1));
+	}
+	
+	@Test
+	void testSwapColumns() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		m.swapColumns(0, 1);
+		
+		assertEquals(2, m.get(0, 0));
+		assertEquals(1, m.get(0, 1));
+		assertEquals(4, m.get(1, 0));
+		assertEquals(3, m.get(1, 1));
+	}
+	
+	@Test
+	void testSwapColumnsIllegalArgument() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.swapColumns(0, 5));
+		assertThrows(IllegalArgumentException.class, () -> m.swapColumns(-1, 1));
+	}
 }
