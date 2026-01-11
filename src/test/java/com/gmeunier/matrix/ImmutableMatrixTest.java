@@ -34,6 +34,22 @@ public class ImmutableMatrixTest {
 
 		assertEquals(1, m.get(0, 0));
 	}
+	
+	@Test
+	void testToString() {
+		double[][] data = {
+			{1, 2},
+			{3, 4}
+		};
+
+		ImmutableMatrix m = ImmutableMatrix.of(data);
+		
+		assertEquals(
+				"Matrix(2x2)\n"
+				+ "[  1,000e+00  2,000e+00 ]\n"
+				+ "[  3,000e+00  4,000e+00 ]",
+			m.toString());
+	}
 
 	@Test
 	void testGetRowDimension() {

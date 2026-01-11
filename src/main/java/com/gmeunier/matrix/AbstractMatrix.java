@@ -80,6 +80,35 @@ public abstract class AbstractMatrix implements Matrix {
 		}
 	}
 	
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Matrix(")
+			.append(this.rowDimension)
+			.append("x")
+			.append(this.columnDimension)
+			.append(")\n");
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			sb.append("[ ");
+			for (int j = 0; j < this.columnDimension; j++) {
+				
+				sb.append(String.format("% .3e", data[i][j]));
+				if (j < this.columnDimension - 1) {
+					sb.append(" ");
+				}
+			}
+			sb.append(" ]");
+			
+			if (i < this.rowDimension - 1) {
+				sb.append("\n");
+			}
+		}
+		
+		return sb.toString();
+	}
+	
 	/**
 	 * Factory method used to create a new matrix instance of the same
 	 * concrete type as this matrix.
