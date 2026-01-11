@@ -3,7 +3,7 @@
 
   <groupId>com.gmeunier</groupId>
   <artifactId>matrix</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
 
   <name>matrix-java</name>
@@ -32,6 +32,14 @@
       <url>https://github.com/guiguitator</url>
     </developer>
   </developers>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub guiguitator Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/guiguitator/matrix-java</url>
+    </repository>
+  </distributionManagement>
   
   <dependencies>
     <dependency>
