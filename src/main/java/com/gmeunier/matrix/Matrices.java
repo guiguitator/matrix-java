@@ -137,7 +137,7 @@ public class Matrices {
 	 * <p>
 	 * The number of diagonal values determines the size of the matrix.
 	 * At least one value must be provided.
-	 * <p>
+	 * </p>
 	 * 
 	 * @param values the values to place on the main diagonal
 	 * @return a diagonal matrix whose diagonal elements are the given values

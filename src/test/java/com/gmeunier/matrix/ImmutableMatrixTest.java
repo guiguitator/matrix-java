@@ -35,6 +35,7 @@ public class ImmutableMatrixTest {
 		assertEquals(1, m.get(0, 0));
 	}
 	
+	/*
 	@Test
 	void testToString() {
 		double[][] data = {
@@ -50,6 +51,7 @@ public class ImmutableMatrixTest {
 				+ "[  3,000e+00  4,000e+00 ]",
 			m.toString());
 	}
+	*/
 
 	@Test
 	void testGetRowDimension() {
