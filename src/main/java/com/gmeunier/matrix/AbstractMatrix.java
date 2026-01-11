@@ -391,6 +391,42 @@ public abstract class AbstractMatrix implements Matrix {
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	@Override
+	public double getRowSum(int row) {
+		MatrixChecks.requireRowIndex(row, this);
+		
+		double result = 0.0;
+		
+		for (int i = 0; i < this.columnDimension; i++) {
+			result += this.data[row][i];
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	@Override
+	public double getColumnSum(int column) {
+		MatrixChecks.requireColumnIndex(column, this);
+		
+		double result = 0.0;
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			result += this.data[i][column];
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * <p>
 	 * The L1 norm is defined as the maximum absolute column sum.
 	 * </p>

@@ -58,6 +58,38 @@ public final class MatrixChecks {
 	}
 	
 	/**
+	 * Checks if the given row index is within the valid range of the matrix.
+	 * 
+	 * @param row the row index to check
+	 * @param matrix the matrix
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	public static void requireRowIndex(int row, Matrix matrix) {
+		if (row < 0 || row >= matrix.getRowDimension()) {
+			throw new IllegalArgumentException(
+					"Row index out of bounds: " + row +
+					" for matrix with " + matrix.getRowDimension() + " rows"
+			);
+		}
+	}
+	
+	/**
+	 * Checks if the given column index is within the valid range of the matrix.
+	 * 
+	 * @param column the column index to check
+	 * @param matrix the matrix
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	public static void requireColumnIndex(int column, Matrix matrix) {
+		if (column < 0 || column >= matrix.getColumnDimension()) {
+			throw new IllegalArgumentException(
+					"Column index out of bounds: " + column +
+					" for matrix with " + matrix.getColumnDimension() + " columns"
+			);
+		}
+	}
+	
+	/**
 	 * Ensures that both matrix dimensions are strictly positive.
 	 * 
 	 * @param rowDimension the number of rows

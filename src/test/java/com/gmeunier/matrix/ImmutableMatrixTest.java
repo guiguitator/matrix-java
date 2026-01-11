@@ -314,6 +314,50 @@ public class ImmutableMatrixTest {
 	}
 	
 	@Test
+	void testGetRowSum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(3, m.getRowSum(0));
+		assertEquals(7, m.getRowSum(1));
+	}
+	
+	@Test
+	void testGetRowSumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getRowSum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getRowSum(2));
+	}
+	
+	@Test
+	void testGetColumnSum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(4, m.getColumnSum(0));
+		assertEquals(6, m.getColumnSum(1));
+	}
+	
+	@Test
+	void testGetColumnSumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnSum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnSum(2));
+	}
+	
+	@Test
 	void testGetL1Norm() {
 		Matrix m = ImmutableMatrix.of(new double[][]{
 			{1, 2},

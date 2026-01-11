@@ -140,6 +140,30 @@ public interface Matrix {
 	double getMinimum();
 	
 	/**
+	 * Returns the sum of all elements in the specified row.
+	 * 
+	 * @param row the index of the row
+	 * @return the sum of the elements in the specified row
+	 */
+	double getRowSum(int row);
+	
+	// double getRowAverage(int row);
+	// double getRowMaximum(int row);
+	// double getRowMinimum(int row);
+	
+	/**
+	 * Returns the sum of all elements in the specified column.
+	 * 
+	 * @param row the index of the row
+	 * @return the sum of the elements in the specified column
+	 */
+	double getColumnSum(int column);
+	
+	// double getColumnAverage(int column);
+	// double getColumnMaximum(int column);
+	// double getColumnMinimum(int column);
+	
+	/**
 	 * Returns the L1 norm of this matrix.
 	 * <p>
 	 * The L1 norm is defined as the maximum absolute column sum.
