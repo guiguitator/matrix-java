@@ -143,8 +143,8 @@ public class MutableMatrixTest {
 		m.shuffle();
 		
 		assertTrue(m.get(0, 0) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
-		assertTrue(m.get(0, 1) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
-		assertTrue(m.get(0, 2) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
+		assertTrue(m.get(0, 1) == 1 || m.get(0, 1) == 2 || m.get(0, 1) == 3);
+		assertTrue(m.get(0, 2) == 1 || m.get(0, 2) == 2 || m.get(0, 2) == 3);
 	}
 	
 	@Test
@@ -197,5 +197,53 @@ public class MutableMatrixTest {
 		
 		assertThrows(IllegalArgumentException.class, () -> m.swapColumns(0, 5));
 		assertThrows(IllegalArgumentException.class, () -> m.swapColumns(-1, 1));
+	}
+	
+	@Test
+	void testScaleRow() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		m.scaleRow(0, 2);
+		
+		assertEquals(2, m.get(0, 0));
+		assertEquals(4, m.get(0, 1));
+	}
+	
+	@Test
+	void testScaleRowIllegalArgument() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.scaleRow(-1, 2));
+		assertThrows(IllegalArgumentException.class, () -> m.scaleRow(5, 2));
+	}
+	
+	@Test
+	void testScaleColumn() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		m.scaleColumn(0, 2);
+		
+		assertEquals(2, m.get(0, 0));
+		assertEquals(6, m.get(1, 0));
+	}
+	
+	@Test
+	void testScaleColumnIllegalArgument() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.scaleColumn(-1, 2));
+		assertThrows(IllegalArgumentException.class, () -> m.scaleColumn(5, 2));
 	}
 }

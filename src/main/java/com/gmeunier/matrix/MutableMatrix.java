@@ -244,4 +244,50 @@ public class MutableMatrix extends AbstractMatrix {
 		
 		return this;
 	}
+	
+	/**
+	 * Multiplies all elements of the specified row by a scalar factor.
+	 *
+	 * @param row the index of the row to scale
+	 * @param factor the scalar multiplier
+	 * @return this matrix after modification
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	public MutableMatrix scaleRow(int row, double factor) {
+		if (row < 0 || row >= this.rowDimension) {
+			throw new IllegalArgumentException(
+					"Row index out of bounds: " + row +
+					" for matrix with " + this.rowDimension + " rows"
+			);
+		}
+		
+		for (int i = 0; i < this.columnDimension; i++) {
+			this.data[row][i] *= factor;
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Multiplies all elements of the specified column by a scalar factor.
+	 * 
+	 * @param column the index of the column to scale
+	 * @param factor the scalar multiplier
+	 * @return this matrix after modification
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	public MutableMatrix scaleColumn(int column, double factor) {
+		if (column < 0 || column >= this.columnDimension) {
+			throw new IllegalArgumentException(
+					"Column index out of bounds: " + column +
+					" for matrix with " + this.columnDimension + " columns"
+			);
+		}
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			this.data[i][column] *= factor;
+		}
+		
+		return this;
+	}
 }
