@@ -336,6 +336,28 @@ public class ImmutableMatrixTest {
 	}
 	
 	@Test
+	void testGetRowAverage() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(1.5, m.getRowAverage(0));
+		assertEquals(3.5, m.getRowAverage(1));
+	}
+	
+	@Test
+	void testGetRowAverageIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getRowAverage(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getRowAverage(2));
+	}
+	
+	@Test
 	void testGetColumnSum() {
 		Matrix m = ImmutableMatrix.of(new double[][]{
 			{1, 2},
@@ -355,6 +377,28 @@ public class ImmutableMatrixTest {
 		
 		assertThrows(IllegalArgumentException.class, () -> m.getColumnSum(-1));
 		assertThrows(IllegalArgumentException.class, () -> m.getColumnSum(2));
+	}
+	
+	@Test
+	void testGetColumnAverage() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(2, m.getColumnAverage(0));
+		assertEquals(3, m.getColumnAverage(1));
+	}
+	
+	@Test
+	void testGetColumnAverageIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnAverage(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnAverage(2));
 	}
 	
 	@Test

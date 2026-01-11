@@ -147,7 +147,14 @@ public interface Matrix {
 	 */
 	double getRowSum(int row);
 	
-	// double getRowAverage(int row);
+	/**
+	 * Returns the arithmetic mean of all elements in the specified row.
+	 * 
+	 * @param row the index of the row
+	 * @return the average value of the elements in the specified row
+	 */
+	double getRowAverage(int row);
+	
 	// double getRowMaximum(int row);
 	// double getRowMinimum(int row);
 	
@@ -159,7 +166,14 @@ public interface Matrix {
 	 */
 	double getColumnSum(int column);
 	
-	// double getColumnAverage(int column);
+	/**
+	 * Returns the arithmetic mean of all elements in the specified column.
+	 * 
+	 * @param row the index of the row
+	 * @return the average value of the elements in the specified column
+	 */
+	double getColumnAverage(int column);
+	
 	// double getColumnMaximum(int column);
 	// double getColumnMinimum(int column);
 	

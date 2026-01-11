@@ -412,6 +412,17 @@ public abstract class AbstractMatrix implements Matrix {
 	 * @throws IllegalArgumentException if the row index is out of bounds
 	 */
 	@Override
+	public double getRowAverage(int row) {
+		MatrixChecks.requireRowIndex(row, this);
+		return this.getRowSum(row) / this.rowDimension;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	@Override
 	public double getColumnSum(int column) {
 		MatrixChecks.requireColumnIndex(column, this);
 		
@@ -422,6 +433,17 @@ public abstract class AbstractMatrix implements Matrix {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	@Override
+	public double getColumnAverage(int column) {
+		MatrixChecks.requireColumnIndex(column, this);
+		return this.getColumnSum(column) / this.columnDimension;
 	}
 	
 	/**
