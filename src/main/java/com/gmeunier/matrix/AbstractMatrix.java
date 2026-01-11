@@ -80,7 +80,23 @@ public abstract class AbstractMatrix implements Matrix {
 		}
 	}
 	
-	
+	/**
+	 * Returns a human-readable string representation of this matrix.
+	 * <p>
+	 * The output includes the matrix dimensions followed by its values,
+	 * formatted row by row.
+	 * </p>
+	 * 
+	 * <p>Example:</p>
+	 * <pre>
+	 * Matrix(2x2)
+	 * [  1,000e+00  2,000e+00 ]
+	 * [  3,000e+00  4,000e+00 ]
+	 * </pre>
+	 * 
+	 * @return a string representation of this matrix
+	 */
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		
