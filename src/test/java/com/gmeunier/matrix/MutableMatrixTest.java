@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import com.gmeunier.matrix.exception.DimensionMismatchException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MutableMatrixTest {
@@ -118,4 +119,31 @@ public class MutableMatrixTest {
 		assertEquals(6, m.get(1, 0));
 	}
 	
+	@Test
+	void testFill() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		m.fill(5);
+		
+		assertEquals(5, m.get(0, 0));
+		assertEquals(5, m.get(0, 1));
+		assertEquals(5, m.get(1, 0));
+		assertEquals(5, m.get(1, 1));
+	}
+	
+	@Test
+	void testShuffle() {
+		MutableMatrix m = MutableMatrix.of(new double[][]{
+			{1, 2, 3}
+		});
+		
+		m.shuffle();
+		
+		assertTrue(m.get(0, 0) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
+		assertTrue(m.get(0, 1) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
+		assertTrue(m.get(0, 2) == 1 || m.get(0, 0) == 2 || m.get(0, 0) == 3);
+	}
 }

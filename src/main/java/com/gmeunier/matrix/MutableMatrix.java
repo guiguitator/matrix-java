@@ -1,5 +1,7 @@
 package com.gmeunier.matrix;
 
+import java.util.Random;
+
 import com.gmeunier.matrix.exception.DimensionMismatchException;
 import com.gmeunier.matrix.util.MatrixChecks;
 
@@ -137,5 +139,47 @@ public class MutableMatrix extends AbstractMatrix {
 		}
 		
 		return this;
-	}	
+	}
+	
+	/**
+	 * Fills the entire matrix with the specified scalar value.
+	 * 
+	 * @param value the value to fill the matrix with
+	 *  @return this matrix after modification
+	 */
+	public MutableMatrix fill(double value) {
+		for (int i = 0; i < this.rowDimension; i++) {
+			for (int j = 0; j < this.columnDimension; j++) {
+				this.data[i][j] = value;
+			}
+		}
+		
+		return this;
+	}
+	
+	/**
+	 * Randomly shuffles all values in the matrix.
+	 * <p>
+	 * Each element of the matrix is randomly swapped with another element, 
+	 * resulting in a random permutation of all values.
+	 * </p>
+	 * 
+	 * @return
+	 */
+	public MutableMatrix shuffle() {
+		Random random = new Random();
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			for (int j = 0; j < this.columnDimension; j++) {
+				int r = random.nextInt(this.rowDimension);
+				int c = random.nextInt(this.columnDimension);
+				
+				double temp = this.data[i][j];
+				this.data[i][j] = this.data[r][c];
+				this.data[r][c] = temp;
+			}
+		}
+		
+		return this;
+	}
 }
