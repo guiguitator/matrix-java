@@ -155,13 +155,26 @@ public interface Matrix {
 	 */
 	double getRowAverage(int row);
 	
-	// double getRowMaximum(int row);
-	// double getRowMinimum(int row);
+	/**
+	 * Returns the maximum value of all elements in the specified row.
+	 * 
+	 * @param row the index of the row
+	 * @return the maximum value of the elements in the specified row
+	 */
+	double getRowMaximum(int row);
+	
+	/**
+	 * Returns the minimum value of all elements in the specified row.
+	 * 
+	 * @param row the index of the row
+	 * @return the minimum value of the elements in the specified row
+	 */
+	double getRowMinimum(int row);
 	
 	/**
 	 * Returns the sum of all elements in the specified column.
 	 * 
-	 * @param row the index of the row
+	 * @param column the index of the column
 	 * @return the sum of the elements in the specified column
 	 */
 	double getColumnSum(int column);
@@ -169,13 +182,26 @@ public interface Matrix {
 	/**
 	 * Returns the arithmetic mean of all elements in the specified column.
 	 * 
-	 * @param row the index of the row
+	 * @param column the index of the column
 	 * @return the average value of the elements in the specified column
 	 */
 	double getColumnAverage(int column);
 	
-	// double getColumnMaximum(int column);
-	// double getColumnMinimum(int column);
+	/**
+	 * Returns the maximum value of all elements in the specified column.
+	 * 
+	 * @param column the index of the column
+	 * @return the maximum value of the elements in the specified column
+	 */
+	double getColumnMaximum(int column);
+	
+	/**
+	 * Returns the minimum value of all elements in the specified column.
+	 * 
+	 * @param column the index of the column
+	 * @return the minimum value of the elements in the specified column
+	 */
+	double getColumnMinimum(int column);
 	
 	/**
 	 * Returns the L1 norm of this matrix.

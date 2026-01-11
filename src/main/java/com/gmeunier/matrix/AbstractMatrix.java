@@ -420,6 +420,46 @@ public abstract class AbstractMatrix implements Matrix {
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	@Override
+	public double getRowMaximum(int row) {
+		MatrixChecks.requireRowIndex(row, this);
+		
+		double result = this.data[row][0];
+		
+		for (int i = 0; i < this.columnDimension; i++) {
+			if (this.data[row][i] > result) {
+				result = this.data[row][i];
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the row index is out of bounds
+	 */
+	@Override
+	public double getRowMinimum(int row) {
+		MatrixChecks.requireRowIndex(row, this);
+		
+		double result = this.data[row][0];
+		
+		for (int i = 0; i < this.columnDimension; i++) {
+			if (this.data[row][i] < result) {
+				result = this.data[row][i];
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @throws IllegalArgumentException if the column index is out of bounds
 	 */
 	@Override
@@ -444,6 +484,46 @@ public abstract class AbstractMatrix implements Matrix {
 	public double getColumnAverage(int column) {
 		MatrixChecks.requireColumnIndex(column, this);
 		return this.getColumnSum(column) / this.columnDimension;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	@Override
+	public double getColumnMaximum(int column) {
+		MatrixChecks.requireColumnIndex(column, this);
+		
+		double result = this.data[0][column];
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			if (this.data[i][column] > result) {
+				result = this.data[i][column];
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws IllegalArgumentException if the column index is out of bounds
+	 */
+	@Override
+	public double getColumnMinimum(int column) {
+		MatrixChecks.requireColumnIndex(column, this);
+		
+		double result = this.data[0][column];
+		
+		for (int i = 0; i < this.rowDimension; i++) {
+			if (this.data[i][column] < result) {
+				result = this.data[i][column];
+			}
+		}
+		
+		return result;
 	}
 	
 	/**

@@ -358,6 +358,50 @@ public class ImmutableMatrixTest {
 	}
 	
 	@Test
+	void testGetRowMaximum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(2, m.getRowMaximum(0));
+		assertEquals(4, m.getRowMaximum(1));
+	}
+	
+	@Test
+	void testGetRowMaximumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getRowMaximum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getRowMaximum(2));
+	}
+	
+	@Test
+	void testGetRowMinimum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(1, m.getRowMinimum(0));
+		assertEquals(3, m.getRowMinimum(1));
+	}
+	
+	@Test
+	void testGetRowMinimumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getRowMinimum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getRowMinimum(2));
+	}
+	
+	@Test
 	void testGetColumnSum() {
 		Matrix m = ImmutableMatrix.of(new double[][]{
 			{1, 2},
@@ -399,6 +443,50 @@ public class ImmutableMatrixTest {
 		
 		assertThrows(IllegalArgumentException.class, () -> m.getColumnAverage(-1));
 		assertThrows(IllegalArgumentException.class, () -> m.getColumnAverage(2));
+	}
+	
+	@Test
+	void testGetColumnMaximum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(3, m.getColumnMaximum(0));
+		assertEquals(4, m.getColumnMaximum(1));
+	}
+	
+	@Test
+	void testGetColumnMaximumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnMaximum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnMaximum(2));
+	}
+	
+	@Test
+	void testGetColumnMinimum() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertEquals(1, m.getColumnMinimum(0));
+		assertEquals(2, m.getColumnMinimum(1));
+	}
+	
+	@Test
+	void testGetColumnMinimumIllegalArgument() {
+		Matrix m = ImmutableMatrix.of(new double[][]{
+			{1, 2},
+			{3, 4}
+		});
+		
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnMinimum(-1));
+		assertThrows(IllegalArgumentException.class, () -> m.getColumnMinimum(2));
 	}
 	
 	@Test
